@@ -11,7 +11,7 @@ import com.automationexercise.utilities.Readconfig;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Basetest {
-	WebDriver driver;
+	public WebDriver driver;
 	
 	@BeforeMethod
 	public void setup() throws Exception {
