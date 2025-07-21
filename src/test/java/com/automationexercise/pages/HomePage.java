@@ -19,5 +19,9 @@ public class HomePage extends Basedriver {
 			return false;
 		}
 	}
+	
+	public void click_signupLogin_btn() {
+		click_element(HomePageLocators.SIGNUP_LOGIN);
+	}
 
 }
