@@ -58,8 +58,14 @@ public class ExtentListener implements ITestListener {
 
 	@Override
 	public void onTestSuccess(ITestResult result) {
+		String screenshot_path = System.getProperty("user.dir") + "\\src\\test\\resources\\screenshots\\";
+
 		test = report.createTest(result.getName());
 		test.log(Status.PASS, MarkupHelper.createLabel("Test Passed", ExtentColor.GREEN));
+
+		if (result.getName().equalsIgnoreCase("register_user")) {
+			test.addScreenCaptureFromPath(screenshot_path + "homepage_visible.png", "Homepage is visible");
+		}
 	}
 
 	@Override
