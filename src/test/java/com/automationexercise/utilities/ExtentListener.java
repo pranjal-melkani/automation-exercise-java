@@ -4,10 +4,12 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
+import com.automationexercise.base.Basetest;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
@@ -63,7 +65,24 @@ public class ExtentListener implements ITestListener {
 	@Override
 	public void onTestFailure(ITestResult result) {
 		test = report.createTest(result.getName());
-		test.log(Status.FAIL, MarkupHelper.createLabel("Test Failed", ExtentColor.RED));
+		String timestamp = new SimpleDateFormat("dd.MM.yy hh.mm.ss").format(new Date());
+		String filename = "failure_" + timestamp;
+		String screenshot_path = System.getProperty("user.dir") + "\\src\\test\\resources\\screenshots\\" + filename
+				+ ".png";
+
+		Object testclass = result.getInstance();
+		WebDriver driver = ((Basetest) testclass).driver;
+		Utils ut = new Utils(driver);
+
+		try {
+			ut.take_screenshot(filename);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		Throwable error = result.getThrowable();
+		test.log(Status.FAIL, MarkupHelper.createLabel(error.getMessage(), ExtentColor.RED));
+		test.addScreenCaptureFromPath(screenshot_path);
 	}
 
 	@Override
