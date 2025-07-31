@@ -11,4 +11,6 @@ public class NavbarLocators {
 	public static final By API_TESTING = By.partialLinkText("API Testing");
 	public static final By VIDEO_TUTORIALS = By.partialLinkText("Video Tutorials");
 	public static final By CONTACT_US = By.partialLinkText("Contact us");
+	public static final By LOGOUT = By.partialLinkText("Logout");
+	public static final By LOGGED_IN_AS = By.partialLinkText("Logged in as");
 }
