@@ -13,4 +13,5 @@ public class NavbarLocators {
 	public static final By CONTACT_US = By.partialLinkText("Contact us");
 	public static final By LOGOUT = By.partialLinkText("Logout");
 	public static final By LOGGED_IN_AS = By.partialLinkText("Logged in as");
+	public static final By DELETE_ACCOUNT = By.partialLinkText("Delete Account");
 }
