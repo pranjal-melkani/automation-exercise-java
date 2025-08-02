@@ -65,6 +65,8 @@ public class ExtentListener implements ITestListener {
 
 		if (result.getName().equalsIgnoreCase("register_user")) {
 			test.addScreenCaptureFromPath(screenshot_path + "homepage_visible.png", "Homepage is visible");
+			test.addScreenCaptureFromPath(screenshot_path + "account_created.png", "Account Created");
+			test.addScreenCaptureFromPath(screenshot_path + "account_deleted.png", "Account Deleted");
 		}
 	}
 
