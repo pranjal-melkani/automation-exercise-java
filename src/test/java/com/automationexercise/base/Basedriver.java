@@ -39,4 +39,10 @@ public class Basedriver {
 		WebElement element = driver.findElement(locator);
 		new Select(element).selectByVisibleText(visible_text);
 	}
+	
+	public String get_element_text(By locator) {
+		wait_until_elementIsVisible(locator);
+		WebElement element = driver.findElement(locator);
+		return element.getText();
+	}
 }
